@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export default function initReservationModel(sequelize, DataTypes) {
   return sequelize.define(
     'reservation',
@@ -17,14 +19,23 @@ export default function initReservationModel(sequelize, DataTypes) {
       },
       date: {
         type: DataTypes.DATE,
+        get() {
+          return moment(this.getDataValue('date')).format('dddd DD/MM/YYYY');
+        },
       },
       created_at: {
         allowNull: false,
         type: DataTypes.DATE,
+        get() {
+          return moment(this.getDataValue('createdAt')).format('DD/MM/YYYY h:mm:ss');
+        },
       },
       updated_at: {
         allowNull: false,
         type: DataTypes.DATE,
+        get() {
+          return moment(this.getDataValue('updatedAt')).format('DD/MM/YYYY h:mm:ss');
+        },
       },
     },
     {

@@ -1,9 +1,6 @@
-import moment from 'moment';
-
-export default function initDrummerModel(sequelize, DataTypes) {
+export default function initEquipmentModel(sequelize, DataTypes) {
   return sequelize.define(
-    'drummer',
-    {
+    'equipments', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -13,22 +10,13 @@ export default function initDrummerModel(sequelize, DataTypes) {
       name: {
         type: DataTypes.STRING,
       },
-      price: {
-        type: DataTypes.FLOAT,
-      },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: DataTypes.DATE,
-        get() {
-          return moment(this.getDataValue('createdAt')).format('DD/MM/YYYY h:mm:ss');
-        },
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: DataTypes.DATE,
-        get() {
-          return moment(this.getDataValue('updatedAt')).format('DD/MM/YYYY h:mm:ss');
-        },
       },
     },
     {

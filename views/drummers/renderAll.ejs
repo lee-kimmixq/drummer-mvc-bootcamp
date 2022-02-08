@@ -1,5 +1,5 @@
 <% drummers.forEach(drummer => { %>
     <p>
-      <%= drummer.id %>: <%= drummer.name %>
+      <a href="/drummer/<%=drummer.id%>"><%= drummer.id %>: <%= drummer.name %> ($<%= drummer.price%>)</a>
     </p>
   <% }) %>
